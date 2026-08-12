@@ -1,0 +1,21 @@
+<%# Nested form: POSTs to /notes/:note_id/comments %>
+<%= form_with(model: [note, comment], class: "form") do |form| %>
+  <% if comment.errors.any? %>
+    <div class="alert alert-error">
+      <ul>
+        <% comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :body, "Your comment" %>
+    <%= form.text_area :body, rows: 2, placeholder: "Say something helpful..." %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Add comment", class: "btn btn-primary" %>
+  </div>
+<% end %>

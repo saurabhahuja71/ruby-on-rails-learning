@@ -1,0 +1,27 @@
+<article class="card">
+  <h1><%= @note.title %></h1>
+  <p class="muted">
+    <%= time_ago_in_words(@note.created_at) %> ago
+    · <%= pluralize @note.comments.count(&:persisted?), "comment" %>
+  </p>
+  <p><%= @note.body %></p>
+
+  <p>
+    <%= link_to "Edit", edit_note_path(@note), class: "btn" %>
+    <%= link_to "Back", notes_path, class: "btn" %>
+    <%= button_to "Delete", @note, method: :delete, form: { data: { turbo_confirm: "Delete this note and all its comments?" } }, class: "btn btn-danger" %>
+  </p>
+</article>
+
+<section id="comments">
+  <h2>Comments (<%= @note.comments.count(&:persisted?) %>)</h2>
+
+  <% @note.comments.reject(&:new_record?).each do |comment| %>
+    <%= render "comments/comment", comment: comment %>
+  <% end %>
+</section>
+
+<section>
+  <h3>Add a comment</h3>
+  <%= render "comments/form", note: @note, comment: @comment %>
+</section>

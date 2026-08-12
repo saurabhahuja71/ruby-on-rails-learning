@@ -1,0 +1,5 @@
+<article class="card comment">
+  <p class="muted"><%= time_ago_in_words(comment.created_at) %> ago</p>
+  <p><%= comment.body %></p>
+  <%= button_to "Delete", note_comment_path(comment.note, comment), method: :delete, class: "btn btn-danger btn-small" %>
+</article>

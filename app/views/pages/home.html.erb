@@ -1,0 +1,15 @@
+<section class="hero">
+  <h1>Welcome to my Rails app</h1>
+  <p>A sample home page to get started. Built with Ruby on Rails.</p>
+  <p class="muted">Time now: <%= Time.now.strftime("%B %d, %Y %H:%M %Z") %></p>
+</section>
+
+<section>
+  <h2>Try these next</h2>
+  <ul class="links">
+    <li><%= link_to "Rails Guides", "https://guides.rubyonrails.org", target: "_blank" %></li>
+    <li><%= link_to "Active Record Basics", "https://guides.rubyonrails.org/active_record_basics.html", target: "_blank" %></li>
+    <li><%= link_to "Routing", "https://guides.rubyonrails.org/routing.html", target: "_blank" %></li>
+    <li><%= link_to "Health check", rails_health_check_path %></li>
+  </ul>
+</section>

@@ -1,0 +1,10 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Fixtures are test-only sample rows loaded into the test database.
+
+welcome:
+  title: Welcome note
+  body: This is the first note used in tests.
+
+mvc:
+  title: How MVC works
+  body: Models, views and controllers in one short sentence.

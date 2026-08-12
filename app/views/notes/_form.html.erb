@@ -1,0 +1,32 @@
+<h1><%= title %></h1>
+
+<%# A shared form partial, used by both "new" and "edit" pages.
+    form_with knows whether to POST (create) or PATCH (update)
+    by checking whether the record has been saved. %>
+<%= form_with(model: note, class: "form") do |form| %>
+  <% if note.errors.any? %>
+    <div class="alert alert-error">
+      <h3><%= pluralize note.errors.count, "error" %> prevented this note from being saved:</h3>
+      <ul>
+        <% note.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, placeholder: "Give your note a title" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, rows: 8, placeholder: "Write something..." %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to "Cancel", notes_path, class: "btn" %>
+  </div>
+<% end %>

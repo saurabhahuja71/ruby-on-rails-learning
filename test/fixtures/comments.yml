@@ -1,0 +1,9 @@
+# Fixtures are test-only sample rows. `note:` links to the fixture above.
+
+one:
+  body: Nice note!
+  note: welcome
+
+two:
+  body: I agree with the first comment.
+  note: welcome

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= content_for(:title) || "Notes · Rails Learning App" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <%= link_to "Notes", root_path, class: "site-header__brand" %>
+        <nav class="site-header__nav">
+          <%= link_to "All notes", root_path %>
+          <%= link_to "New note", new_note_path, class: "btn btn-primary btn-small" %>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <%# flash: one-time messages set by controllers, e.g. redirect_to ..., notice: "..." %>
+      <% flash.each do |type, message| %>
+        <div class="flash flash-<%= type %>"><%= message %></div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+  </body>
+</html>
